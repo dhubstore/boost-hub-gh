@@ -1,0 +1,77 @@
+body{
+  font-family:Arial;
+  margin:0;
+  background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
+
+nav a{
+  color:#ccc;
+  margin:0 10px;
+  text-decoration:none;
+}
+
+nav a:hover{
+  color:white;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px;
+  color:white;
+  background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+/* PRODUCTS */
+.products-list{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+.product-card{
+  background:white;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* PRICE */
+.price{
+  color:#00c853;
+  font-weight:bold;
+}
+
+/* INPUT */
+.order-section input{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+/* BUTTON */
+.purchase-btn{
+  width:100%;
+  background:#00c853;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.purchase-btn:hover{
+  background:#00b248;
+}
