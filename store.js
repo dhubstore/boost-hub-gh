@@ -1,3 +1,5 @@
+let selectedProduct = null;
+
 let products = [
   {name:"1K TIKTOK LIKES", price:10, category:"TikTok"},
   {name:"1K TIKTOK VIEWS", price:5, category:"TikTok"},
@@ -28,16 +30,16 @@ function renderProducts(cat="all"){
       <div class="order-section">
         <input id="i-${p.name}" placeholder="Enter username/link">
 
-        <button class="purchase-btn" onclick="orderWhatsApp('${p.name}',${p.price})">
-          Order via WhatsApp
+        <button class="purchase-btn" onclick="startOrder('${p.name}',${p.price})">
+          Order Now
         </button>
       </div>
     </div>`;
   });
 }
 
-/* WHATSAPP ORDER */
-function orderWhatsApp(name, price){
+/* START ORDER */
+function startOrder(name, price){
   const val = document.getElementById(`i-${name}`).value;
 
   if(!val){
@@ -45,19 +47,33 @@ function orderWhatsApp(name, price){
     return;
   }
 
+  selectedProduct = {name, price, username: val};
+
+  document.getElementById("paymentModal").style.display = "flex";
+}
+
+/* CONFIRM PAYMENT */
+function confirmPayment(){
   const phone = "233509329683";
 
-  const message = `Hello 👋, I want to order:
+  const msg = `Hello 👋, I have made payment via Telecel Cash.
 
-Service: ${name}
-Price: GHC ${price}
-Username/Link: ${val}
+Service: ${selectedProduct.name}
+Price: GHC ${selectedProduct.price}
+Username/Link: ${selectedProduct.username}
 
-Please how do I pay?`;
+Please confirm and process my order.`;
 
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
   window.open(url, "_blank");
+
+  closeModal();
+}
+
+/* CLOSE MODAL */
+function closeModal(){
+  document.getElementById("paymentModal").style.display = "none";
 }
 
 /* NAV FILTER */
